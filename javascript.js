@@ -17,7 +17,7 @@ var cardList = [
     "images/Herrscher_of_Thunder.png",
     "images/Rouged_Mayumi.png",
     "images/Shadow_Knight.png",
-    "images/Shelley's_Beastliya.png",
+    "images/Shelley_Beastliya.png",
     "images/Stygian_Nymph.png",
     "images/Twilight_Paladin.png",
     "images/Vermilion_Knight.png"

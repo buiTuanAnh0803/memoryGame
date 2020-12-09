@@ -55,7 +55,7 @@ body {
     width: 80%;
 }
 .list-item {
-    margin: 20px;
+    margin: 1%;
     position: relative;
 }
 img {
@@ -68,7 +68,7 @@ img {
     border: none;
     box-sizing: border-box;
     background-size: cover;
-    border-radius: 10px;
+    border-radius: 10%;
     position: absolute;
     top: 0;
     left: 0;
