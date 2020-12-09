@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game">
+        <div class="cover start-game">
+            <button class="start" onclick="startGame()">Start</button>
+        </div>
+        <div class="cover end-game hide">
+            <div class="game-over win hide">
+                Congratulation! You won.<br>
+                <button class="btn-ok" onclick="resetGame()">OK</button>
+            </div>
+            <div class="game-over lose hide">
+                You lose! Try agian?<br>
+                <button class="btn-ok" onclick="resetGame()">OK</button>
+            </div>
+        </div>
+        <div class="timer container">
+            <div class="time"></div>
+        </div>
+        <div class="list-card">
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(0)"></button>
+                <button class="card front"></button>
+            </div>
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(1)"></button>
+                <button class="card front"></button>
+            </div>
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(2)"></button>
+                <button class="card front"></button>
+            </div>
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(3)"></button>
+                <button class="card front"></button>
+            </div>
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(4)"></button>
+                <button class="card front"></button>
+            </div>
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(5)"></button>
+                <button class="card front"></button>
+            </div>
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(6)"></button>
+                <button class="card front"></button>
+            </div>
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(7)"></button>
+                <button class="card front"></button>
+            </div>
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(8)"></button>
+                <button class="card front"></button>
+            </div>
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(9)"></button>
+                <button class="card front"></button>
+            </div>
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(10)"></button>
+                <button class="card front"></button>
+            </div>
+            <div class="list-item">
+                <img class="blank" src="images/card.jpg">
+                <button class="card back" onclick="rotateCard(11)"></button>
+                <button class="card front"></button>
+            </div>
+        </div>
+    </div>
+
+    <audio src="https://soundcloud.com/hydroooxide/honkai-impact-3-2nd-anniversary-bgm-stfreya-fiesta?in=tu-n-anh-b-i-5/sets/honkai-impact-3"></audio>
+    <script src="javascript.js"></script>
+</body>
+
+</html>
