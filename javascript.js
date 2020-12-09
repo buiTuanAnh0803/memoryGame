@@ -1,14 +1,29 @@
-var timeMax = 20000 // miliseconds
+var timeMax = 60000 // miliseconds
+var rowCount = 6 // max cards number in a row
 var cardList = [
     "images/Bright_Knight.png",
     "images/Umbral_Rose.png",
     "images/Herrscher_of_Reason.png",
     "images/Knight_Moonbeam.png",
     "images/Starlit_Astrologos.png",
-    "images/Striker_Fulminata.png"
+    "images/Striker_Fulminata.png",
+    "images/Azure_Empyrea.png",
+    "images/Black_Nucleus.png",
+    "images/Darkbolt_Jonin.png",
+    "images/Gothic_Rozamary.png",
+    "images/Grand_Sage.png",
+    "images/Hanami_Daimyo.png",
+    "images/Herrscher_of_the_Void.png",
+    "images/Herrscher_of_Thunder.png",
+    "images/Rouged_Mayumi.png",
+    "images/Shadow_Knight.png",
+    "images/Shelley's_Beastliya.png",
+    "images/Stygian_Nymph.png",
+    "images/Twilight_Paladin.png",
+    "images/Vermilion_Knight.png"
 ]
 
-showList()
+showList(rowCount)
 var cardListShow = [] // array with per cardItem object include (front, back)
 
 var listItem = document.querySelectorAll(".list-item")
@@ -69,16 +84,38 @@ function resetGame() {
     window.location.reload(true)
 }
 
-function showList() {
-    var cardList1 = shuffle(cardList)
-    var cardList2 = shuffle(cardList)
-    cardList = cardList1.concat(cardList2)
+function showList(maxRow) {
     cardList = shuffle(cardList)
-    var cardImg = document.querySelectorAll(".card.front")
+    var newCardList = cardList.splice(0, maxRow)
+    console.log(newCardList)
+    newCardList = newCardList.concat(newCardList)
+    newCardList = shuffle(newCardList)
 
-    for (let i = 0; i < cardList.length; i++) {
-        cardImg[i].setAttribute("style", "background-image:url(" + cardList[i] + ")")
+    var rowList1 = document.createElement("div")
+    var row1 = ""
+    rowList1.classList.add("list-card")
+    for (let i = 0; i < newCardList.length / 2; i++) {
+        let blank = '<img class="blank" src="images/card.jpg">'
+        let back = '<button class="card back" onclick="rotateCard(' + i + ')" style="z-index: 2;"></button>'
+        let front = '<button class="card front" style="background-image: url(' + newCardList[i] + '); z-index: 1;"></button>'
+        let listItem = '<div class="list-item">' + blank + front + back + '</div>'
+        row1 += listItem
     }
+    rowList1.innerHTML = row1
+    document.getElementsByClassName("game")[0].appendChild(rowList1)
+
+    var rowList2 = document.createElement("div")
+    var row2 = ""
+    rowList2.classList.add("list-card")
+    for (let i = newCardList.length / 2; i < newCardList.length; i++) {
+        let blank = '<img class="blank" src="images/card.jpg">'
+        let back = '<button class="card back" onclick="rotateCard(' + i + ')" style="z-index: 2;"></button>'
+        let front = '<button class="card front" style="background-image: url(' + newCardList[i] + '); z-index: 1;"></button>'
+        let listItem = '<div class="list-item">' + blank + front + back + '</div>'
+        row2 += listItem
+    }
+    rowList2.innerHTML = row2
+    document.getElementsByClassName("game")[0].appendChild(rowList2)
 }
 
 function rotateCard(index) {
