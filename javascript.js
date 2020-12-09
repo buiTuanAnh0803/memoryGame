@@ -87,7 +87,6 @@ function resetGame() {
 function showList(maxRow) {
     cardList = shuffle(cardList)
     var newCardList = cardList.splice(0, maxRow)
-    console.log(newCardList)
     newCardList = newCardList.concat(newCardList)
     newCardList = shuffle(newCardList)
 
