@@ -25,9 +25,10 @@ body {
     padding-bottom: 50px;
 }
 .start {
-    width: 20%;
     border-radius: 10px;
     padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
     background-color: blue;
     color: white;
     font-size: 20px;
