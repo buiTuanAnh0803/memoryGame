@@ -23,6 +23,7 @@ var cardList = [
     "images/Vermilion_Knight.png"
 ]
 
+showList(rowCount)
 var cardListShow = [] // array with per cardItem object include (front, back)
 
 var listItem = document.querySelectorAll(".list-item")
@@ -46,7 +47,6 @@ var runTime = 0
 // ====================================================================
 function startGame() {
     document.querySelectorAll(".cover.start-game")[0].classList.add("hide")
-    showList(rowCount)
     timeStart()
 }
 
