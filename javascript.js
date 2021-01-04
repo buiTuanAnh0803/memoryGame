@@ -1,4 +1,4 @@
-var timeMax = 60000 // miliseconds
+var timeMax = 10000 // miliseconds
 var rowCount = 6 // max cards number in a row
 var cardList = [
     "images/Bright_Knight.png",
@@ -22,24 +22,7 @@ var cardList = [
     "images/Twilight_Paladin.png",
     "images/Vermilion_Knight.png"
 ]
-
-showList(rowCount)
-var cardListShow = [] // array with per cardItem object include (front, back)
-
-var listItem = document.querySelectorAll(".list-item")
-var cardFront = document.querySelectorAll(".card.front")
-var cardBack = document.querySelectorAll(".card.back")
-
-for (let i = 0; i < listItem.length; i++) {
-    let cardItem = {
-        front: "",
-        back: ""
-    }
-    cardItem.front = cardFront[i]
-    cardItem.back = cardBack[i]
-    cardListShow.push(cardItem)
-}
-
+var cardListShow
 var validateCard = [] // array 2 card for validating them
 var validateCount = 0 // count the matched card
 var runTime = 0
@@ -48,6 +31,25 @@ var runTime = 0
 function startGame() {
     document.querySelectorAll(".cover.start-game")[0].classList.add("hide")
     timeStart()
+    showList(rowCount)
+    document.getElementById("background-music").autoplay = true
+    document.getElementById("background-music").load()
+
+    cardListShow = [] // array with per cardItem object include (front, back)
+
+    let listItem = document.querySelectorAll(".list-item")
+    let cardFront = document.querySelectorAll(".card.front")
+    let cardBack = document.querySelectorAll(".card.back")
+
+    for (let i = 0; i < listItem.length; i++) {
+        let cardItem = {
+            front: "",
+            back: ""
+        }
+        cardItem.front = cardFront[i]
+        cardItem.back = cardBack[i]
+        cardListShow.push(cardItem)
+    }
 }
 
 function endGame(status) { // status = "win" or "lose"
@@ -149,9 +151,9 @@ function disableAllCard(status) {
 function revealCard(index) {
     disableAllCard(true)
     cardListShow[index].front.classList.add("rotate")
-    cardListShow[index].front.style.zIndex = 2
+    cardListShow[index].front.style.zIndex = 3
     cardListShow[index].back.classList.add("rotate")
-    cardListShow[index].back.style.zIndex = 1
+    cardListShow[index].back.style.zIndex = 2
     setTimeout(() => {
         disableAllCard(false)
     }, 500);
@@ -160,9 +162,9 @@ function revealCard(index) {
 function reserveCard() {
     for (let i = 0; i < cardListShow.length; i++) {
         cardListShow[i].front.classList.remove("rotate")
-        cardListShow[i].front.style.zIndex = 1
+        cardListShow[i].front.style.zIndex = 2
         cardListShow[i].back.classList.remove("rotate")
-        cardListShow[i].back.style.zIndex = 2
+        cardListShow[i].back.style.zIndex = 3
     }
 }
 

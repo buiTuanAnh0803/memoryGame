@@ -9,10 +9,10 @@
 </head>
 
 <body>
+    <div class="cover start-game">
+        <button class="start" onclick="startGame()">Start</button>
+    </div>
     <div class="game">
-        <div class="cover start-game">
-            <button class="start" onclick="startGame()">Start</button>
-        </div>
         <div class="cover end-game hide">
             <div class="game-over win hide">
                 Congratulation! You won.<br>
@@ -27,8 +27,10 @@
             <div class="time"></div>
         </div>
     </div>
-
-    <audio src="https://soundcloud.com/hydroooxide/honkai-impact-3-2nd-anniversary-bgm-stfreya-fiesta?in=tu-n-anh-b-i-5/sets/honkai-impact-3"></audio>
+    <img src="images/bg.jpg" alt="background" id="background">
+    <audio id="background-music" loop style="display: none;">
+        <source src="sounds/10. ACE.mp3">
+    </audio>
     <script src="javascript.js"></script>
 </body>
 
