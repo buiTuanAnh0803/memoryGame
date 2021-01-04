@@ -32,6 +32,8 @@ function startGame() {
     document.querySelectorAll(".cover.start-game")[0].classList.add("hide")
     timeStart()
     showList(rowCount)
+    document.getElementById("start-music").pause()
+    document.getElementById("background-music").volume = 0.4
     document.getElementById("background-music").autoplay = true
     document.getElementById("background-music").load()
 
@@ -54,11 +56,16 @@ function startGame() {
 
 function endGame(status) { // status = "win" or "lose"
     document.querySelectorAll(".cover.end-game")[0].classList.remove("hide")
+    document.getElementById("background-music").pause()
     if (status == "win") {
         document.querySelectorAll(".game-over.win.hide")[0].classList.remove("hide")
+        document.getElementById("win-music").autoplay = true
+        document.getElementById("win-music").load()
         clearInterval(runTime)
     } else if (status == "lose") {
         document.querySelectorAll(".game-over.lose.hide")[0].classList.remove("hide")
+        document.getElementById("lose-music").autoplay = true
+        document.getElementById("lose-music").load()
     }
 }
 
@@ -150,6 +157,8 @@ function disableAllCard(status) {
 
 function revealCard(index) {
     disableAllCard(true)
+    document.getElementById("reveal").autoplay = true
+    document.getElementById("reveal").load()
     cardListShow[index].front.classList.add("rotate")
     cardListShow[index].front.style.zIndex = 3
     cardListShow[index].back.classList.add("rotate")
@@ -166,6 +175,8 @@ function reserveCard() {
         cardListShow[i].back.classList.remove("rotate")
         cardListShow[i].back.style.zIndex = 3
     }
+    document.getElementById("reserve").autoplay = true
+    document.getElementById("reserve").load()
 }
 
 function checkCard(img1, img2) {
